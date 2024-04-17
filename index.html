@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table</title>
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+
+<body onload="loadTable()">
+    <h1>Employee Table</h1>
+    <table id="employeeTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="employeeRows" >
+        </tbody>
+    </table>
+
+    <button id="addemp1" class="employeerows btn" onclick="showForm(), showTable(), hideAddEmp()">Add Employee</button>
+
+    <form id="employeeForm" style="display: none;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required pattern="[a-zA-Z]+" title="Please enter a valid name">
+        <label for="position">Position:</label>
+        <input type="text" required pattern="[a-zA-Z]+" id="position" title="Please enter a valid position">
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" required pattern="[0-9]+" title="Please enter a valid number">
+
+        <input id="addemp2" type="submit" value="Add">
+    </form>
+    
+    <form id="editForm" style="display: none;">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="editName" placeholder="Name" title="Name" required pattern="[a-zA-Z]+" title="Please enter a valid name">
+            <label for="position">Position:</label>
+            <input type="text" id="editPosition" placeholder="Position" required pattern="[a-zA-Z]+" title="Please enter a valid Position" >
+            <label for="salary">Salary:</label>
+            <input type="text" id="editSalary" placeholder="Salary" required pattern="[0-9]+" title="Please enter a valid Salary">
+        </div>
+        <div>
+            <button type="submit"  class="btn" onclick="saveEditedEmployee(), showaddemp(), showTable()">Save</button>
+            <button type="button" class="btn" onclick="cancelEdit(), showaddemp(), showTable()">Cancel</button>
+        </div>
+    </form>
+
+    <script src="script.js"></script>
+        
+    
+</body>
+
+</html>
